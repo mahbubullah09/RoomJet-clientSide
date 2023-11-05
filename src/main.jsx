@@ -3,16 +3,17 @@ import ReactDOM from 'react-dom/client'
 
 import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import MainLayout from './Layout/MainLayout';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element:<div> <h3>route</h3></div>,
+    element:<MainLayout/>,
     // errorElement: <ErrorPage />,
     children: [
       {
-        path: "/contacts",
+        path: "contacts",
         element: <div> <h3>ab</h3></div>,
       },
     ],
