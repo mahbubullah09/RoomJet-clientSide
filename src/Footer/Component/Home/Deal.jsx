@@ -1,7 +1,7 @@
 import deal from '../../../assets/deal.png';
 
 const Deal = () => {
-    console.log('jdhfdf');
+
     return (
         <div className=' bg-orange-100'>
             <div className='py-16  px-8 flex items-center '>

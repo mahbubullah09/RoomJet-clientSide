@@ -3,7 +3,7 @@
       "room_name": "Cozy Suite",
       "description": "A comfortable suite with a beautiful view of the city. Perfect for a romantic getaway.",
       "price": 150,
-      "availability": true,
+      "availability": false,
       "image": "https://i.ibb.co/7yPDwH0/147998421.jpg",
       "size": "400 sq ft"
     },
@@ -19,7 +19,7 @@
       "room_name": "Family Retreat",
       "description": "A family-friendly suite with a separate living area and kitchenette.",
       "price": 250,
-      "availability": true,
+      "availability": false,
       "image": "https://i.ibb.co/7yPDwH0/147998421.jpg",
       "size": "750 sq ft"
     },
@@ -59,7 +59,7 @@
       "room_name": "Business Suite",
       "description": "A spacious suite with a dedicated workspace, perfect for business travelers.",
       "price": 190,
-      "availability": true,
+      "availability": false,
       "image": "https://i.ibb.co/7yPDwH0/147998421.jpg",
       "size": "600 sq ft"
     },
@@ -75,7 +75,7 @@
       "room_name": "Economy Single",
       "description": "An affordable and comfortable single room for solo travelers.",
       "price": 100,
-      "availability": true,
+      "availability": false,
       "image": "https://i.ibb.co/7yPDwH0/147998421.jpg",
       "size": "250 sq ft"
     },
@@ -91,7 +91,7 @@
       "room_name": "Luxury Spa Suite",
       "description": "Relax and rejuvenate in a luxurious suite with a private spa and sauna.",
       "price": 400,
-      "availability": true,
+      "availability": false,
       "image": "https://i.ibb.co/7yPDwH0/147998421.jpg",
       "size": "900 sq ft"
     },

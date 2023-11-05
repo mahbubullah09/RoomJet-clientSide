@@ -1,12 +1,14 @@
-
-import videoBanner from '../../../assets/Roomjet.mp4'
+import videoBanner from "../../../assets/Roomjet.mp4";
 import logo from "../../../assets/RoomJet-2.png";
 import Deal from "./Deal";
-import Newsletter from './Newsletter';
-import Review from './Review';
-import Rooms from '../Rooms/Rooms';
+import Newsletter from "./Newsletter";
+import Review from "./Review";
+import Rooms from "../Rooms/Rooms";
+import { useLoaderData } from "react-router-dom";
 
 const Home = () => {
+  const data = useLoaderData();
+  console.log(data);
   return (
     <div className="relative max-w-6xl mx-auto">
       <div className="max-w-6xl mx-auto">
@@ -34,27 +36,36 @@ const Home = () => {
         <div className="flex-1">
           <img src={logo} alt="" />
         </div>
-     
       </div>
 
-<div className='mt-40'>
-<Deal/>
-</div>
+      <div className="mt-40">
+        <Deal />
+      </div>
 
-<div className='bg-[#ccb9b1] py-20'>
-    <Rooms/>
-</div>
+      <div className="bg-[#ccb9b1] py-20">
+        <div className="text-center w-4/5 mx-auto space-y-4 mb-6">
+          <h3 className="text-4xl font-bold">Our feature Rooms</h3>
+          <p>
+            Experience the pinnacle of luxury with our feature room. Immerse
+            yourself in spacious comfort, breathtaking views, and exclusive
+            amenities, creating an unforgettable stay for our most discerning
+            guests.
+          </p>
+        </div>
+        <div className="grid grid-cols-3 gap-4 mx-2">
+          {data.slice(6, 12).map((data) => (
+            <Rooms key={data.room_name} data={data} />
+          ))}
+        </div>
+      </div>
 
-<div>
-    <Review/>
-</div>
+      <div>
+        <Review />
+      </div>
 
-<div className='mt-16'>
-    <Newsletter/>
-</div>
-
-
-      
+      <div className="mt-16">
+        <Newsletter />
+      </div>
     </div>
   );
 };
