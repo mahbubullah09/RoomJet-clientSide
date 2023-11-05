@@ -4,6 +4,7 @@ import logo from "../../../assets/RoomJet-2.png";
 import Deal from "./Deal";
 import Newsletter from './Newsletter';
 import Review from './Review';
+import Rooms from '../Rooms/Rooms';
 
 const Home = () => {
   return (
@@ -38,6 +39,10 @@ const Home = () => {
 
 <div className='mt-40'>
 <Deal/>
+</div>
+
+<div className='bg-[#ccb9b1] py-20'>
+    <Rooms/>
 </div>
 
 <div>
