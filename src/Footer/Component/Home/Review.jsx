@@ -6,7 +6,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 // import required modules
-import { EffectCoverflow, Pagination, Navigation } from "swiper/modules";
+import {Autoplay, EffectCoverflow, Pagination, Navigation } from "swiper/modules";
 
 const Review = () => {
   return (
@@ -24,6 +24,10 @@ const Review = () => {
         </div>
 
         <Swiper
+           autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
           slidesPerView={3}
           spaceBetween={30}
           effect={"coverflow"}
@@ -42,7 +46,7 @@ const Review = () => {
             prevEl: ".swiper-button-prev",
             clickable: true,
           }}
-          modules={[EffectCoverflow, Pagination, Navigation]}
+          modules={[Autoplay,EffectCoverflow, Pagination, Navigation]}
           className="swiper_container"
         >
           <SwiperSlide>
