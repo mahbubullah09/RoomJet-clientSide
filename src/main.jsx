@@ -5,6 +5,7 @@ import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import MainLayout from './Layout/MainLayout';
 import Home from './Footer/Component/Home/Home';
+import RoomsData from './Footer/Component/Rooms/RoomsData';
 
 
 
@@ -19,6 +20,11 @@ const router = createBrowserRouter([
         element: <Home/>,
         loader: () => fetch('FakeData.json')
       },
+      {
+        path: '/rooms',
+        element: <RoomsData/>,
+        loader: () => fetch('FakeData.json')
+      }
     ],
   },
 ]);
