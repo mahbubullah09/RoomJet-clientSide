@@ -3,6 +3,7 @@ import videoBanner from '../../../assets/Roomjet.mp4'
 import logo from "../../../assets/RoomJet-2.png";
 import Deal from "./Deal";
 import Newsletter from './Newsletter';
+import Review from './Review';
 
 const Home = () => {
   return (
@@ -39,9 +40,14 @@ const Home = () => {
 <Deal/>
 </div>
 
+<div>
+    <Review/>
+</div>
+
 <div className='mt-16'>
     <Newsletter/>
 </div>
+
 
       
     </div>
