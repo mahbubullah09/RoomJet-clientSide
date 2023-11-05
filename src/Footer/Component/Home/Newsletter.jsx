@@ -2,7 +2,7 @@ import emailLogo from '../../../assets/email.png'
 
 const Newsletter = () => {
     return (
-        <div className="text-center max-w-4xl mx-auto relative ">
+        <div className="text-center max-w-4xl mx-auto relative mb-20 ">
             <div className="bg-slate-700 py-16 rounded-lg space-y-4 ">
                 <h1 className="text-[#ffcf00] font-semibold text-4xl">  Join Our Newsletter</h1>
                 <h2 className="text-white">Stay up to data with our letest news,deal and offer</h2>
