@@ -4,7 +4,8 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import MainLayout from './Layout/MainLayout';
-import Home from './Component/Home/Home';
+import Home from './Footer/Component/Home/Home';
+
 
 
 const router = createBrowserRouter([
