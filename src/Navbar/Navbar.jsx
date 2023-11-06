@@ -1,11 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, NavLink, useNavigate, useSearchParams } from "react-router-dom";
 import logo from '../assets/RoomJet logo.png'
+import { AuthContext } from "../Provider/authProvider";
 
 
 const Navbar = () => {
 
-  const  user = []
+  const {user,logOut} = useContext(AuthContext);
+  console.log(user);
  
 
   const navLink = (
@@ -108,7 +110,7 @@ const Navbar = () => {
                   <div className="w-10  ">
                     {user ? (
                       <img
-                        className="  cursor-pointer"
+                        className="  cursor-pointer rounded-full w-16"
                         src={user?.photoURL}
                         alt=""
                       />
@@ -124,27 +126,19 @@ const Navbar = () => {
                   tabIndex={0}
                   className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
                 >
-                  <li>
-                    <NavLink
-                      to="/profile"
-                      className={({ isActive }) =>
-                        isActive
-                          ? " text-black bg-white   py-2 px-4  "
-                          : " "
-                      }
-                    >
-                      Profile
-                    </NavLink>
-                  </li>
+                  
 
                   <li>
                     <a>{user?.displayName}</a>
+                  </li>
+                  <li>
+                    <a>{user?.email}</a>
                   </li>
                 </ul>
               </div>
               <div>
                 <button
-                  className=" text-base font-semibold hover:bg-[#9dd51f] hover:text-black bg-[#28844b] text-white  py-2 px-4 rounded-md hover:bg-blue-gray-800"
+                  className="text-base font-semibold hover:bg-[#28844b] hover:text-black bg-[#ffcf00]  text-black  py-2 px-4 rounded-md hover:bg-blue-gray-800"
                   onClick={logOut}
                 >
                   Logout
@@ -153,7 +147,7 @@ const Navbar = () => {
             </div>
           ) : (
             <div className=" text-base font-semibold hover:bg-[#28844b] hover:text-black bg-[#ffcf00]  text-black  py-2 px-4 rounded-md hover:bg-blue-gray-800 ">
-              <Link to={"login"}>Log In</Link>
+              <Link to={"/login"}>Log In</Link>
             </div>
           )}
         </div>

@@ -7,6 +7,9 @@ import MainLayout from './Layout/MainLayout';
 import Home from './Footer/Component/Home/Home';
 import RoomsData from './Footer/Component/Rooms/RoomsData';
 import RoomDetails from './Footer/Component/Rooms/RoomDetails';
+import Login from './registration/Login';
+import SingUp from './registration/SingUp';
+import AuthProvider from './Provider/authProvider';
 
 
 
@@ -31,6 +34,14 @@ const router = createBrowserRouter([
         element:<RoomDetails/>,
         loader: ({params}) => fetch(`FakeData.json/rooms/${params.name}`)
       },
+      {
+        path: '/login',
+        element:<Login/>
+      },
+      {
+        path: '/singup',
+        element: <SingUp/>
+      },
     ],
   },
 ]);
@@ -40,6 +51,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-     <RouterProvider router={router} />
+     <AuthProvider>
+  <RouterProvider router={router} />
+  </AuthProvider>
   </React.StrictMode>,
 )
