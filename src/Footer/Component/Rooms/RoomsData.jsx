@@ -128,9 +128,9 @@ return y-x;
       </div>
 
      <div>
-      <h3 className="bg-slate-500 text-white font-bold text-4xl text-center py-4">All Room</h3>
+      <h3 className="bg-slate-500 text-white font-bold text-4xl text-center py-4 mt-8">All Rooms</h3>
       <p className="flex max-w-[16rem]  justify-evenly items-center mx-4 bg-[#ffcf00] py-2 px-4 rounded-full my-4">
-        <p className="text-xl">Sort By</p>
+        <p className="text-xl">Filter By</p>
         <div className="dropdown ">
   <label tabIndex={0} className="btn m-1">{sort}</label>
   <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-200 rounded-box w-52">
