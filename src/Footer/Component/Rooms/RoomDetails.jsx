@@ -25,7 +25,7 @@ const RoomDetails = () => {
     const findData = data?.find((data) => data._id == id);
     SetRoom(findData);
   }, [data, id]);
-  console.log(room);
+
 
 //   const { room_name, description, price, availability, image, size } = room;
   return (
@@ -43,7 +43,7 @@ const RoomDetails = () => {
               </div>
               <div className="grid place-content-center">
                 <div className=" px-2">
-                 <Link to={`/book/${room?.room_name}`}>
+                 <Link to={`/book/${room?._id}`}>
                  <button className="w-full bg-gray-900 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700">
                     Book Now
                   </button>

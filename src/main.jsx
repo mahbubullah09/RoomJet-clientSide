@@ -10,6 +10,7 @@ import RoomDetails from './Footer/Component/Rooms/RoomDetails';
 import Login from './registration/Login';
 import SingUp from './registration/SingUp';
 import AuthProvider from './Provider/authProvider';
+import Bookings from './Booking/Bookings';
 
 
 
@@ -32,7 +33,12 @@ const router = createBrowserRouter([
       {
         path: '/rooms/:id',
         element:<RoomDetails/>,
-        loader: ({params}) => fetch(`FakeData.json/rooms/${params.id}`)
+        loader: ({params}) => fetch(`http://localhost:5000/rooms/${params.id}`)
+      },
+      {
+        path: '/book/:id',
+        element:<Bookings/>,
+        loader: ({params}) => fetch(`http://localhost:5000/rooms/${params.id}`)
       },
       {
         path: '/login',
