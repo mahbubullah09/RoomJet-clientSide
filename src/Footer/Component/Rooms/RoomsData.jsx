@@ -13,13 +13,15 @@ import {
 
 import { useLoaderData } from "react-router-dom";
 import RoomImage from "./RoomImage";
+import RoomsCard from "./RoomsCard";
 
 const RoomsData = () => {
   const data = useLoaderData();
   return (
     <div className="my-10">
 
-        <h2 className="text-4xl font-bold text-center my-5">Image Gallary</h2>
+      <div>
+      <h2 className="text-4xl font-bold text-center my-5">Image Gallary</h2>
       <Swiper
         autoplay={{
           delay: 2500,
@@ -64,6 +66,15 @@ const RoomsData = () => {
             <div className="swiper-pagination"></div>
           </div>
       </Swiper>
+      </div>
+
+      <div className="grid grid-cols-3 gap-6 my-20">
+        {
+          data.map((data) => <RoomsCard key={data.room_name} data={data}/>
+
+          )
+        }
+      </div>
     </div>
   );
 };
