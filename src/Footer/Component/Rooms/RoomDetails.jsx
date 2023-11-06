@@ -79,7 +79,7 @@ const RoomDetails = () => {
               <div className="flex">
                 <p className="text-gray-300 mr-4">Size: {room?.size}</p>
               {
-                room?.specialOdder ?
+                room?.specialOffer ?
                 <p className="text-gray-300">Special Offer : {
                     room?.specialOdder ?
 

@@ -53,7 +53,7 @@ const Home = () => {
           </p>
         </div>
         <div className="grid grid-cols-3 gap-4 mx-2 my-8">
-          {data.slice(6, 12).map((data) => (
+          {data?.slice(6, 12).map((data) => (
             <Rooms key={data.room_name} data={data} />
           ))}
         </div>
