@@ -14,26 +14,67 @@ import {
 import { useLoaderData } from "react-router-dom";
 import RoomImage from "./RoomImage";
 import RoomsCard from "./RoomsCard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const RoomsData = () => {
-  const data = useLoaderData();
+ let data= useLoaderData();
+
+
+  
+;
 
   const [sort, setSort] = useState('Default')
-  console.log(sort);
+
+  const [defaltData, setDefaultData] = useState([])
+
+
+  useEffect(() => {
+    fetch('../../../../public/FakeData.json')
+    .then(response => response.json())
+   
+ .then(data =>  setDefaultData(data) )
+  
+  },[])
+  
+  
 
 const selectDefault = () => {
-  setSort('default')
+  setSort('Default')
+
+ 
+
 }
 
 
 const selectLow = () => {
   setSort('Low to high')
+
+
+
+  data.sort((a, b) => {
+    let x = parseInt(a.price)
+    let y = parseInt(b.price)
+
+
+return x-y;
+  })
+  
+
+
 }
 
 
 const selectHigh = () => {
   setSort('High to low')
+
+
+  data.sort((a, b) => {
+    let x = parseInt(a.price)
+    let y = parseInt(b.price)
+
+
+return y-x;
+});
 }
   return (
     <div className="my-10">
@@ -100,10 +141,11 @@ const selectHigh = () => {
 </div>
       </p>
      <div className="grid grid-cols-3 gap-6 my-20">
-        {
-          data.map((data) => <RoomsCard key={data.room_name} data={data}/>
-
-          )
+        { 
+         sort === 'Default' ?
+          defaltData.map((data) => <RoomsCard key={data.room_name} data={data}/>)
+          :
+          data.map((data) => <RoomsCard key={data.room_name} data={data}/>)
         }
       </div>
      </div>

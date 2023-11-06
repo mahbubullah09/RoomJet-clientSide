@@ -1,7 +1,7 @@
 import React from 'react';
 
 const RoomsCard = ({data}) => {
-    console.log(data);
+    
     const {room_name,description,price,availability,image, size} = data
     return (
       <div>
