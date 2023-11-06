@@ -6,7 +6,7 @@ const RoomImage = ({data}) => {
         <div>
         <Link to={`/${data.room_name}`}>
         <div>
-        <img className='relative' src={data.image} alt="" />
+        <img className='relative w-full' src={data.image} alt="" />
         < p className='absolute top-0 left-1 text-4xl font-bold '>{data.room_name}</p>
         </div>
         </Link>
