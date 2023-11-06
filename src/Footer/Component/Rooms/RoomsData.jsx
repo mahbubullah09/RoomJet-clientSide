@@ -14,9 +14,27 @@ import {
 import { useLoaderData } from "react-router-dom";
 import RoomImage from "./RoomImage";
 import RoomsCard from "./RoomsCard";
+import { useState } from "react";
 
 const RoomsData = () => {
   const data = useLoaderData();
+
+  const [sort, setSort] = useState('Default')
+  console.log(sort);
+
+const selectDefault = () => {
+  setSort('default')
+}
+
+
+const selectLow = () => {
+  setSort('Low to high')
+}
+
+
+const selectHigh = () => {
+  setSort('High to low')
+}
   return (
     <div className="my-10">
 
@@ -68,13 +86,27 @@ const RoomsData = () => {
       </Swiper>
       </div>
 
-      <div className="grid grid-cols-3 gap-6 my-20">
+     <div>
+      <h3 className="bg-slate-500 text-white font-bold text-4xl text-center py-4">All Room</h3>
+      <p className="flex max-w-[16rem]  justify-evenly items-center mx-4 bg-[#ffcf00] py-2 px-4 rounded-full my-4">
+        <p className="text-xl">Sort By</p>
+        <div className="dropdown ">
+  <label tabIndex={0} className="btn m-1">{sort}</label>
+  <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-200 rounded-box w-52">
+    <li onClick={selectDefault}><a>Default</a></li>
+    <li onClick={selectLow}><a>Low to high</a></li>
+    <li onClick={selectHigh}><a>High to low</a></li>
+  </ul>
+</div>
+      </p>
+     <div className="grid grid-cols-3 gap-6 my-20">
         {
           data.map((data) => <RoomsCard key={data.room_name} data={data}/>
 
           )
         }
       </div>
+     </div>
     </div>
   );
 };
