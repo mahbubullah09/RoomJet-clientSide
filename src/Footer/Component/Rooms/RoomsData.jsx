@@ -19,12 +19,7 @@ import { useEffect, useState } from "react";
 const RoomsData = () => {
  let data= useLoaderData();
 
-
-  
-;
-
   const [sort, setSort] = useState('Default')
-
   const [defaltData, setDefaultData] = useState([])
 
 
@@ -36,20 +31,12 @@ const RoomsData = () => {
   
   },[])
   
-  
-
 const selectDefault = () => {
   setSort('Default')
-
- 
-
 }
-
 
 const selectLow = () => {
   setSort('Low to high')
-
-
 
   data.sort((a, b) => {
     let x = parseInt(a.price)

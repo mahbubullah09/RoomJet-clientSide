@@ -6,6 +6,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import MainLayout from './Layout/MainLayout';
 import Home from './Footer/Component/Home/Home';
 import RoomsData from './Footer/Component/Rooms/RoomsData';
+import RoomDetails from './Footer/Component/Rooms/RoomDetails';
 
 
 
@@ -24,7 +25,12 @@ const router = createBrowserRouter([
         path: '/rooms',
         element: <RoomsData/>,
         loader: () => fetch('FakeData.json')
-      }
+      },
+      {
+        path: '/rooms/:name',
+        element:<RoomDetails/>,
+        loader: ({params}) => fetch(`FakeData.json/rooms/${params.name}`)
+      },
     ],
   },
 ]);
