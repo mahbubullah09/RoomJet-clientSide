@@ -47,9 +47,9 @@ const RoomsData = () => {
         className="swiper_container"
       >
         <div className="mb-28">
-          {data.map((data) => (
-            <SwiperSlide>
-              <RoomImage key={data.room_name} data={data} />
+          {data.map((data,idx) => (
+            <SwiperSlide key={idx}>
+              <RoomImage key={idx} data={data} />
             </SwiperSlide>
           ))}
         </div>
