@@ -24,7 +24,7 @@ const RoomsData = () => {
 
 
   useEffect(() => {
-    fetch('../../../../public/FakeData.json')
+    fetch('http://localhost:5000/rooms')
     .then(response => response.json())
    
  .then(data =>  setDefaultData(data) )

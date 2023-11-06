@@ -22,17 +22,17 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home/>,
-        loader: () => fetch('/FakeData.json')
+        loader: () => fetch('http://localhost:5000/rooms')
       },
       {
         path: '/rooms',
         element: <RoomsData/>,
-        loader: () => fetch('/FakeData.json')
+        loader: () => fetch('http://localhost:5000/rooms')
       },
       {
-        path: '/rooms/:name',
+        path: '/rooms/:id',
         element:<RoomDetails/>,
-        loader: ({params}) => fetch(`FakeData.json/rooms/${params.name}`)
+        loader: ({params}) => fetch(`FakeData.json/rooms/${params.id}`)
       },
       {
         path: '/login',

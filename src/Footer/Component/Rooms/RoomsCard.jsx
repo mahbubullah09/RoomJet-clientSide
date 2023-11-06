@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const RoomsCard = ({ data }) => {
-  const { room_name, description, price, availability, image, size } = data;
+  const {_id, room_name, description, price, availability, image, size } = data;
   return (
     <div>
       <div className="max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md">
@@ -33,7 +33,7 @@ const RoomsCard = ({ data }) => {
             <p>Price: {price}</p>
           </div>
           <div className="grid place-items-center">
-            <Link to={`/rooms/${room_name}`}>
+            <Link to={`/rooms/${_id}`}>
               <button className=" text-base font-semibold my-4 bg-[#ff5100]  text-white py-2 px-4 rounded-full hover:bg-blue-gray-800">
                 Details
               </button>

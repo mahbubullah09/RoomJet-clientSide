@@ -13,18 +13,19 @@ import {Autoplay, EffectCoverflow, Pagination, Navigation } from "swiper/modules
 
 
 const RoomDetails = () => {
-  const { name } = useParams();
+  const {id } = useParams();
 
   const [data, setData] = useState([]);
   const [room, SetRoom] = useState([]);
 
   useEffect(() => {
-    fetch("../../../../public/FakeData.json")
+    fetch('http://localhost:5000/rooms')
       .then((res) => res.json())
       .then((data) => setData(data));
-    const findData = data?.find((data) => data.room_name == name);
+    const findData = data?.find((data) => data._id == id);
     SetRoom(findData);
-  }, [data, name]);
+  }, [data, id]);
+  console.log(room);
 
 //   const { room_name, description, price, availability, image, size } = room;
   return (
