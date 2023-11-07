@@ -48,14 +48,6 @@ const handleBookings = (e) => {
   console.log(Name,date,phone);
 };
 
-//handledatechange
-
-// const handleDatechange = (e) =>{
-//     e.preventDefault();
-    
-//     // const toggledate = e.target.date.value
-//     console.log(toggledate);
-// }
 
 
 

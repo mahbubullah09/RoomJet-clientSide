@@ -17,6 +17,8 @@ import {
 } from "swiper/modules";
 import moment from "moment";
 import { AuthContext } from "../../../Provider/authProvider";
+import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 
 
@@ -59,7 +61,7 @@ const [booked, setBooked] = useState([]);
   //filter 
 
   const [IsBooked, setIsBooked] = useState();
-  console.log(IsBooked);
+
 
   useEffect(() => {
 
@@ -81,19 +83,50 @@ const [booked, setBooked] = useState([]);
 
 
 const image = user?.photoURL
-const User_name  = user?.displayName
+const user_name  = user?.displayName
 
 const time = moment().format("YYYY/MM/DD");
 
-const [rating, setRating] = useState();
-const [message , setMessage] = useState();
+// const [rating, setRating] = useState();
+// const [message , setMessage] = useState();
 
 const handleReview = (e) =>{
   e.preventDefault();
   const rating= e.target.rating.value;
-  setRating(rating);
+  e.target.rating.value =''
   const message = e.target.message.value;
-  setMessage(message)
+  e.target.message.value = ''
+
+  const addReview = {
+    image,
+    user_name,
+    time,
+    rating,
+    message,
+    room_id : id
+  }
+  console.log(addReview);
+
+  fetch('http://localhost:5000/reviews', {
+    method: 'POST',
+    headers:{
+        'content-type' : 'application/json'
+    },
+    body: JSON.stringify(addReview)
+})
+.then(res => res.json())
+.then(data =>{
+    console.log(data);
+
+    if(data.insertedId){
+        toast.success('Review added successfully!!')
+
+    }
+   
+})
+
+
+  
 }
 
 
@@ -127,9 +160,7 @@ const handleReview = (e) =>{
                   {
                     IsBooked ? 
                     <button
-                    onClick={() =>
-                      document.getElementById("my_modal_3").showModal()
-                    }
+                    onClick={()=>document.getElementById('my_modal_5').showModal()}
                     className="w-full bg-gray-900 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700"
                   >
                     Give a review
@@ -143,23 +174,16 @@ const handleReview = (e) =>{
                   </button>
                   }
                 </div>
-
-                <dialog id="my_modal_3" className="modal">
-                  <div className="modal-box">
-                    <form method="dialog">
-                      {/* if there is a button in form, it will close the modal */}
-                      <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-                        ✕
-                      </button>
-                    </form>
-                    <h2 className="title-font mb-1 text-lg font-medium text-gray-900">
+                <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+  <div className="modal-box">
+  <h2 className="title-font mb-1 text-lg font-medium text-gray-900">
                       Feedback
                     </h2>
                     <p className="mb-5 leading-relaxed text-gray-600">
                       If you had any issues or you liked our service, please
                       share with us!
                     </p>
-                   <form onSubmit={handleReview}>
+                   <form onSubmit={handleReview} method="dialog">
                    <div className="mb-4 font-medium text-lg">
                       <label
                         htmlFor="email"
@@ -169,6 +193,7 @@ const handleReview = (e) =>{
                       </label>
                       <div className="flex items-center ">
                         <input
+                        required
                           type="number"
                           min="1.0"
                           max="5.0"
@@ -187,6 +212,7 @@ const handleReview = (e) =>{
                         Message
                       </label>
                       <textarea
+                      required
                         id="message"
                         name="message"
                         className="h-32 w-full resize-none rounded border border-gray-300 bg-white py-1 px-3 text-base leading-6 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
@@ -199,8 +225,18 @@ const handleReview = (e) =>{
                     <p className="mt-3 text-xs text-gray-500">
                       Feel free to connect with us on social media platforms.
                     </p>
-                  </div>
-                </dialog>
+    <div className="modal-action">
+      <form method="dialog">
+        {/* if there is a button in form, it will close the modal */}
+        <button className="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
+
+
+
+                
               </div>
             </div>
             <div className="md:flex-1 px-4">
