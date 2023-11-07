@@ -11,6 +11,7 @@ import Login from './registration/Login';
 import SingUp from './registration/SingUp';
 import AuthProvider from './Provider/authProvider';
 import Bookings from './Booking/Bookings';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 
 
@@ -32,7 +33,9 @@ const router = createBrowserRouter([
       },
       {
         path: '/rooms/:id',
-        element:<RoomDetails/>,
+        element:<PrivateRoute>
+          <RoomDetails/>,
+        </PrivateRoute>,
         loader: ({params}) => fetch(`http://localhost:5000/rooms/${params.id}`)
       },
       {

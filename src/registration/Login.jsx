@@ -8,9 +8,10 @@ import toast from "react-hot-toast";
 
 
 const Login = () => {
-    const location = useLocation();
-    console.log(location);
-    const navigate = useNavigate();
+  const location = useLocation();
+
+
+  const navigate = useNavigate();
 
     const {login} = useContext(AuthContext);
   
@@ -33,7 +34,7 @@ const Login = () => {
       .then((res) => {
         toast.success('Succesfully logged in')
 
-        navigate(location?.state ? location.state : '/')
+        navigate(location.state ? location.state : '/')
 
 
     

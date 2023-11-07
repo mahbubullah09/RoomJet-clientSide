@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import toast from "react-hot-toast";
 import SocialLogin from "./SocialLogin";
@@ -9,9 +9,10 @@ import { AuthContext } from "../Provider/authProvider";
 const SingUp = () => {
   const { user, createUser, handleUpdateProfile } = useContext(AuthContext);
 
-  const navigate = useNavigate();
-  console.log(user);
+  const location = useLocation();
 
+
+ const navigate = useNavigate();
 
 
   const handleSingUp = (event) => {
@@ -48,7 +49,7 @@ const SingUp = () => {
       .then((res) => {
         handleUpdateProfile(name, image).then(() => {
           toast.success("User created successfully");
-          navigate("/");
+          navigate(location.state ? location.state : '/')
 
           toast.success("Succesfully create account");
         });
