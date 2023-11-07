@@ -12,6 +12,7 @@ import SingUp from './registration/SingUp';
 import AuthProvider from './Provider/authProvider';
 import Bookings from './Booking/Bookings';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
+import MyBookings from './Footer/Component/MyBooking/MyBookings';
 
 
 
@@ -44,6 +45,12 @@ const router = createBrowserRouter([
           <Bookings/>
         </PrivateRoute>,
         loader: ({params}) => fetch(`http://localhost:5000/rooms/${params.id}`)
+      },
+      {
+        path: '/mybookings',
+        element:<PrivateRoute>
+          <MyBookings/>
+        </PrivateRoute>,
       },
       {
         path: '/login',
