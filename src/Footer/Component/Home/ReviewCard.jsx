@@ -7,9 +7,9 @@ const ReviewCard = ({data}) => {
     console.log(data);
     return (
         <div>
-              <div className="block rounded-lg bg-white shadow-lg dark:bg-neutral-700 dark:shadow-black/30">
+              <div className="block rounded-lg bg-neutral-700 shadow-black/30">
                 <div className="h-28 overflow-hidden rounded-t-lg bg-[#9d789b]"></div>
-                <div className="mx-auto -mt-12 w-24 overflow-hidden rounded-full border-2 border-white bg-white dark:border-neutral-800 dark:bg-neutral-800">
+                <div className="mx-auto -mt-12 w-24 overflow-hidden rounded-full border-2  border-neutral-800 bg-neutral-800">
                   <img src={data?.image} />
                 </div>
                 <div className="p-6">
