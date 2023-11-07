@@ -38,6 +38,7 @@ const RoomsCard = ({ data }) => {
                 Details
               </button>
             </Link>
+            
           </div>
         </div>
       </div>
