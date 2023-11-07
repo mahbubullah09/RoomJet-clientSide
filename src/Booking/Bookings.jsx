@@ -1,3 +1,4 @@
+import moment from "moment";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -16,6 +17,8 @@ const Bookings = () => {
       SetRoom(findData);
     }, [data, id]);
     console.log(room);
+    const minDate = moment().format('YYYY-MM-DD');
+    console.log(minDate);
   
     return (
         <div>
@@ -88,7 +91,7 @@ const Bookings = () => {
                     <label className="block text-gray-700 text-sm font-bold mb-2">Your Booking Date</label>
                     
                 </div>
-                <input className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="date" />
+                <input min={minDate} className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="date" />
             </div>
           
             <div className="mt-8">
