@@ -38,17 +38,15 @@ const MyBookings = () => {
       }).then((result) => {
         if (result.isConfirmed) {
          
-            fetch(`http://localhost:5000/orders/${id}`, {
+            fetch(`http://localhost:5000/bookings/${id}`, {
                 method: "DELETE"
             })
             .then(res => res.json())
             .then(data =>{
                 console.log(data)
     
-    
-    
-    
-    
+       
+       
                 if (data.deletedCount > 0){
                     Swal.fire(
                         'Deleted!',
@@ -69,7 +67,8 @@ const MyBookings = () => {
   }
 
   
-  const handleStatus = id => {
+  const handleUpdate = id => {
+    console.log(id);
     fetch(`http://localhost:5000/orders/${id}`, {
         method: "PATCH",
         headers: {
@@ -116,7 +115,7 @@ const MyBookings = () => {
               key={bookings._id} 
               bookings={bookings} 
               handleDelete={handleDelete}
-              handleStatus={handleStatus}
+              handleStatus={handleUpdate}
               />
             ))}
           </tbody>

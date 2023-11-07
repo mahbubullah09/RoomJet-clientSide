@@ -1,18 +1,13 @@
-const BookingRow = ({ bookings,handleDelete ,handleStatus}) => {
+const BookingRow = ({ bookings,handleDelete ,handleUpdate}) => {
   console.log(bookings);
 
   const {
     room_name,
-    email,
-    service_id,
-    image,
-    title,
-    price,
-    size,
+       image,
     date,
     _id,
-    status
-  } = bookings;
+   } = bookings;
+
 
   console.log(status,bookings);
 
@@ -36,7 +31,7 @@ const BookingRow = ({ bookings,handleDelete ,handleStatus}) => {
       <td>{date}</td>
       <th className="flex flex-col gap-2">
        
-        <button onClick={() => handleStatus(_id)} className="w-24 bg-[#FF3811] py-2 px-4 rounded text-white">Update</button>
+        <button onClick={() => handleUpdate(_id)} className="w-24 bg-[#FF3811] py-2 px-4 rounded text-white">Update</button>
      
         <button onClick={() => handleDelete(_id)} className="w-24 bg-[#FF3811] py-2 px-4 rounded text-white">Delete</button>
       </th>
