@@ -16,9 +16,18 @@ const Bookings = () => {
       const findData = data?.find((data) => data._id == id);
       SetRoom(findData);
     }, [data, id]);
-    console.log(room);
+
     const minDate = moment().format('YYYY-MM-DD');
-    console.log(minDate);
+    const handleBookings = (e) =>{
+        e.preventDefault();
+        const name = e.target.name.value;
+        const phone = e.target.phone.value;
+        const date = e.target.date.value;
+        console.log(name,phone,date);
+        
+
+
+    }
   
     return (
         <div>
@@ -78,25 +87,43 @@ const Bookings = () => {
               <p className="text-gray-600  text-sm mb-4">
                 {room?.description}
               </p>
-            <div className="mt-4">
+
+
+       <form onSubmit={handleBookings}>
+       <div className="mt-4">
                 <label className="block text-gray-700 text-sm font-bold mb-2">Name</label>
-                <input className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="text" />
+                <input required name='name' className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="text" />
             </div>
             <div className="mt-4">
                 <label className="block text-gray-700 text-sm font-bold mb-2">Phone Number</label>
-                <input className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="text" />
+                <input required name="phone" className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="text" />
             </div>
             <div className="mt-4">
                 <div className="flex justify-between">
                     <label className="block text-gray-700 text-sm font-bold mb-2">Your Booking Date</label>
                     
                 </div>
-                <input min={minDate} className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="date" />
+                <input required name="date" min={minDate} className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="date" />
             </div>
           
             <div className="mt-8">
-                <button className="bg-gray-700 text-white font-bold py-2 px-4 w-full rounded hover:bg-gray-600">Book Now</button>
+                <button type="submit"   className="bg-gray-700 text-white font-bold py-2 px-4 w-full rounded hover:bg-gray-600">Book Now</button>
             </div>
+       </form>
+
+
+            <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+  <div className="modal-box">
+    <h3 className="font-bold text-lg">Hello!</h3>
+    <p className="py-4">Press ESC key or click the button below to close</p>
+    <div className="modal-action">
+      <form method="dialog">
+        {/* if there is a button in form, it will close the modal */}
+        <button className="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
            
         </div>
     </div>
