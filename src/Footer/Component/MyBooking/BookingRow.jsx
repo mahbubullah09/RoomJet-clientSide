@@ -21,13 +21,20 @@ room_id
    //compare booking date
 
    const[possible,SetPossible] = useState(false)
+   const [pass,setPass] = useState(false)
    useEffect(() =>{
     if((time.startsWith('in') && time.endsWith('day')) || (time.startsWith('in') && time.endsWith('days'))){
       SetPossible(true);
       }
+
+      if(time.startsWith('in')){
+        setPass(true)
+       
+      }
    
    },[time])
    console.log(possible);
+   console.log(pass);
 
 
 
@@ -47,21 +54,27 @@ room_id
           
         </div>
       </td>
-      
       <td>{date}</td>
-      <th className="flex flex-col gap-2">
-       
-       <Link to={`/updateBookings/${_id}`}>
-       <button  className="w-24 bg-[#FF3811] py-2 px-4 rounded text-white">Update</button>
-       </Link>
+      
+   {
+    pass ?
+    
+    <th className="flex flex-col gap-2">
      
-       {
-        possible?
-        <button onClick={() => handleDelete(_id)} className="w-24 bg-[#FF3811] py-2 px-4 rounded text-white">Cancel</button>
-        :
-        <button disabled className="w-24 bg-[#24110d] py-2 px-4 rounded text-white">Can't Cancel</button>
-       }
-      </th>
+     <Link to={`/updateBookings/${_id}`}>
+     <button  className="w-24 bg-[#FF3811] py-2 px-4 rounded text-white">Update</button>
+     </Link>
+   
+     {
+      possible?
+      <button onClick={() => handleDelete(_id)} className="w-24 bg-[#FF3811] py-2 px-4 rounded text-white">Cancel</button>
+      :
+      <button disabled className="w-24 bg-[#24110d] py-2 px-4 rounded text-white">Can't Cancel</button>
+     }
+    </th>
+    :
+    <h2 className="w-24 text-center font-bold text-lg">Hope Enjoy that staying</h2>
+   }
     </tr>
   );
 };
