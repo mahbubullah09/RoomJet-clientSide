@@ -1,3 +1,6 @@
+import moment from "moment";
+import { Link } from "react-router-dom";
+
 const BookingRow = ({ bookings,handleDelete ,handleUpdate}) => {
   console.log(bookings);
 
@@ -6,7 +9,12 @@ const BookingRow = ({ bookings,handleDelete ,handleUpdate}) => {
        image,
     date,
     _id,
+    
+room_id
    } = bookings;
+
+   const time = moment(date, "YYYYMMDD").fromNow();
+   console.log(time);
 
 
   console.log(status,bookings);
@@ -31,7 +39,9 @@ const BookingRow = ({ bookings,handleDelete ,handleUpdate}) => {
       <td>{date}</td>
       <th className="flex flex-col gap-2">
        
-        <button onClick={() => handleUpdate(_id)} className="w-24 bg-[#FF3811] py-2 px-4 rounded text-white">Update</button>
+       <Link to={`/updateBookings/${_id}`}>
+       <button  className="w-24 bg-[#FF3811] py-2 px-4 rounded text-white">Update</button>
+       </Link>
      
         <button onClick={() => handleDelete(_id)} className="w-24 bg-[#FF3811] py-2 px-4 rounded text-white">Delete</button>
       </th>

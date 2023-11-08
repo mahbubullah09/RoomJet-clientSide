@@ -13,6 +13,7 @@ import AuthProvider from './Provider/authProvider';
 import Bookings from './Booking/Bookings';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import MyBookings from './Footer/Component/MyBooking/MyBookings';
+import UpdateBookings from './Footer/Component/MyBooking/UpdateBookings';
 
 
 
@@ -51,6 +52,13 @@ const router = createBrowserRouter([
         element:<PrivateRoute>
           <MyBookings/>
         </PrivateRoute>,
+      },
+      {
+        path: '/updateBookings/:id',
+        element:<PrivateRoute>
+          <UpdateBookings/>
+        </PrivateRoute>,
+         loader: ({params}) => fetch(`http://localhost:5000/bookings/${params.id}`)
       },
       {
         path: '/login',
