@@ -44,7 +44,7 @@ const SingUp = () => {
     createUser(email, password)
       .then((res) => {
         handleUpdateProfile(name, image).then(() => {
-          toast.success("User created successfully");
+   
           navigate(location.state ? location.state : "/");
 
           toast.success("Succesfully create account");

@@ -24,7 +24,7 @@ useEffect(() => {
     .then((data) => setReview(data));
  
 }, []);
-console.log(review);
+
 
 
 

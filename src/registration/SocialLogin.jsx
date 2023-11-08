@@ -4,6 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 import toast from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/authProvider";
+import axios from "axios";
 
 
 
@@ -16,14 +17,30 @@ const SocialLogin = () => {
     const {user, googleLogin} = useContext(AuthContext)
     console.log(user);
 
+    const email= user?.email
+
     const handleSocialSingin = () =>{
         googleLogin()
-        .then(res =>  {
-            toast.success('Succesfully logged in')
-            navigate(location.state ? location.state : '/')
-
-    
-    })
+        .then(result =>{
+            const user1 = result.user
+            console.log(user1)
+      
+            const loggeinUser = {email};
+      
+            axios.post('http://localhost:5000/jwt' , loggeinUser,{
+              withCredentials: true
+            })
+            .then(res => {
+              console.log(res.data)
+              if(res.data.success){
+                navigate(location.state ? location.state : '/')
+                toast.success('Successfully login')
+      
+              }})
+          
+                 
+          
+          })
         .catch(error => console.log(error))
     }
     return (

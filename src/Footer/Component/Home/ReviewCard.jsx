@@ -3,8 +3,7 @@ import React from 'react';
 
 const ReviewCard = ({data}) => {
     const time = moment(data?.time, "YYYYMMDD").fromNow();
-    console.log(time);
-    console.log(data);
+
     return (
         <div>
               <div className="block rounded-lg bg-neutral-700 shadow-black/30">

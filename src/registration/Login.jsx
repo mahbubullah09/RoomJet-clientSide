@@ -5,6 +5,7 @@ import { AuthContext } from "../Provider/authProvider";
 
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet-async";
+import axios from "axios";
 
 const Login = () => {
   const location = useLocation();
@@ -28,11 +29,26 @@ const Login = () => {
 
     //login user
     login(email, password)
-      .then((res) => {
-        toast.success("Succesfully logged in");
+    .then(result =>{
+      const user = result.user
+      console.log(user)
 
-        navigate(location.state ? location.state : "/");
+      const loggeinUser = {email};
+
+      axios.post('http://localhost:5000/jwt' , loggeinUser,{
+        withCredentials: true
       })
+      .then(res => {
+        console.log(res.data)
+        if(res.data.success){
+          navigate(location.state ? location.state : '/')
+          toast.success('Successfully login')
+
+        }})
+    
+           
+    
+    })
       .catch((error) => {
         toast.error("Invalid Email or Password");
       });
