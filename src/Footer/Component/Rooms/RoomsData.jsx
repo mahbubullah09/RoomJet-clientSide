@@ -25,7 +25,7 @@ const RoomsData = () => {
 
 
   useEffect(() => {
-    fetch('http://localhost:5000/rooms')
+    fetch('https://roomjet-server-side.vercel.app/rooms')
     .then(response => response.json())
    
  .then(data =>  setDefaultData(data) )

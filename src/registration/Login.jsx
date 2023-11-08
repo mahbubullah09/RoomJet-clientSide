@@ -35,7 +35,7 @@ const Login = () => {
 
       const loggeinUser = {email};
 
-      axios.post('http://localhost:5000/jwt' , loggeinUser,{
+      axios.post('https://roomjet-server-side.vercel.app/jwt' , loggeinUser,{
         withCredentials: true
       })
       .then(res => {

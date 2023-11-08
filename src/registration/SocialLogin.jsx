@@ -17,7 +17,8 @@ const SocialLogin = () => {
     const {user, googleLogin} = useContext(AuthContext)
     console.log(user);
 
-    const email= user?.email
+    // const email= user?.email
+    // console.log(email);
 
     const handleSocialSingin = () =>{
         googleLogin()
@@ -25,9 +26,9 @@ const SocialLogin = () => {
             const user1 = result.user
             console.log(user1)
       
-            const loggeinUser = {email};
+            const loggeinUser = {email: user1?.email};
       
-            axios.post('http://localhost:5000/jwt' , loggeinUser,{
+            axios.post('https://roomjet-server-side.vercel.app/jwt' , loggeinUser,{
               withCredentials: true
             })
             .then(res => {

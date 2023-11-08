@@ -18,7 +18,7 @@ const Bookings = () => {
   const [dataChange, setDataChange] = useState();
 
   useEffect(() => {
-    fetch("http://localhost:5000/rooms")
+    fetch("https://roomjet-server-side.vercel.app/rooms")
       .then((res) => res.json())
       .then((data) => setData(data));
     const findData = data?.find((data) => data._id == id);
@@ -52,7 +52,7 @@ const Bookings = () => {
   //fetch bokked data
 
   const [booked, setBooked] = useState([]);
-  const url = `http://localhost:5000/booked?room_id=${_id}`;
+  const url = `https://roomjet-server-side.vercel.app/booked?room_id=${_id}`;
 
   useEffect(() => {
     //    axios.get(url, {withCredentials:true})
@@ -93,7 +93,7 @@ const Bookings = () => {
       };
       console.log(addBooking);
 
-      fetch("http://localhost:5000/bookings", {
+      fetch("https://roomjet-server-side.vercel.app/bookings", {
         method: "POST",
         headers: {
           "content-type": "application/json",

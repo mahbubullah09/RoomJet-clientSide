@@ -30,26 +30,26 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home/>,
-        loader: () => fetch('http://localhost:5000/rooms')
+        loader: () => fetch('https://roomjet-server-side.vercel.app/rooms')
       },
       {
         path: '/rooms',
         element: <RoomsData/>,
-        loader: () => fetch('http://localhost:5000/rooms')
+        loader: () => fetch('https://roomjet-server-side.vercel.app/rooms')
       },
       {
         path: '/rooms/:id',
         element:
           <RoomDetails/>,
         
-        loader: ({params}) => fetch(`http://localhost:5000/rooms/${params.id}`)
+        loader: ({params}) => fetch(`https://roomjet-server-side.vercel.app/rooms/${params.id}`)
       },
       {
         path: '/book/:id',
         element:<PrivateRoute>
           <Bookings/>
         </PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/rooms/${params.id}`)
+        loader: ({params}) => fetch(`https://roomjet-server-side.vercel.app/rooms/${params.id}`)
       },
       {
         path: '/mybookings',
@@ -62,7 +62,7 @@ const router = createBrowserRouter([
         element:<PrivateRoute>
           <UpdateBookings/>
         </PrivateRoute>,
-         loader: ({params}) => fetch(`http://localhost:5000/bookings/${params.id}`)
+         loader: ({params}) => fetch(`https://roomjet-server-side.vercel.app/bookings/${params.id}`)
       },
       {
         path: '/login',

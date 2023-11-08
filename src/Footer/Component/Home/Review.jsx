@@ -19,7 +19,7 @@ const Review = () => {
 const [review, setReview] = useState();
 
 useEffect(() => {
-  fetch("http://localhost:5000/reviews")
+  fetch("https://roomjet-server-side.vercel.app/reviews")
     .then((res) => res.json())
     .then((data) => setReview(data));
  

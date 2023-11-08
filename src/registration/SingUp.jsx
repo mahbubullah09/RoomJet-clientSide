@@ -44,11 +44,12 @@ const SingUp = () => {
     createUser(email, password)
       .then((res) => {
         handleUpdateProfile(name, image).then(() => {
-   
+             
           navigate(location.state ? location.state : "/");
 
           toast.success("Succesfully create account");
         });
+        
       })
       .catch((error) => {
         toast.error(error.message);

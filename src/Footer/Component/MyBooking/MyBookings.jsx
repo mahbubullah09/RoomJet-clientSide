@@ -10,13 +10,12 @@ const MyBookings = () => {
   const { user } = useContext(AuthContext);
   const [bookings, setBookings] = useState([]);
   console.log(bookings);
-  const url = `http://localhost:5000/booked/email?email=${user?.email}`;
+  const url = `https://roomjet-server-side.vercel.app/booked/email?email=${user?.email}`;
 
   useEffect(() => {
-     axios.get(url, {withCredentials:true})
-     .then(res => {
-      setBookings(res.data)
-     })
+    axios.get(url, { withCredentials: true }).then((res) => {
+      setBookings(res.data);
+    });
 
     // fetch(url)
     //   .then((res) => res.json())
@@ -34,7 +33,7 @@ const MyBookings = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/bookings/${id}`, {
+        fetch(`https://roomjet-server-side.vercel.app/bookings/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -56,7 +55,7 @@ const MyBookings = () => {
 
   const handleUpdate = (id) => {
     console.log(id);
-    fetch(`http://localhost:5000/orders/${id}`, {
+    fetch(`https://roomjet-server-side.vercel.app/orders/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
