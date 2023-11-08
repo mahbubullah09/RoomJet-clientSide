@@ -17,8 +17,8 @@ const Navbar = () => {
           to="/"
           className={({ isActive }) =>
             isActive
-              ? " text-black font-bold   py-2 px-4     "
-              : "   py-2 px-4  "
+              ? " text-black font-bold bg-white rounded   py-2 px-4     "
+              : " font-boldF  py-2 px-4  "
           }
         >
           {" "}
@@ -33,8 +33,8 @@ const Navbar = () => {
           to="/rooms"
           className={({ isActive }) =>
             isActive
-              ? " text-black    py-2 px-4  "
-              : "   py-2 px-4 font-bold "
+              ? " text-black font-bold bg-white rounded   py-2 px-4  "
+              : " font-bold  py-2 px-4  "
           }
         >
           {" "}
@@ -49,8 +49,8 @@ const Navbar = () => {
           to="/mybookings"
           className={({ isActive }) =>
             isActive
-              ? " text-black   py-2 px-4  "
-              : "   py-2 px-4 font-bold "
+              ? " text-black font-bold bg-white rounded   py-2 px-4  "
+              : "  font-bold py-2 px-4  "
           }
         >
           {" "}

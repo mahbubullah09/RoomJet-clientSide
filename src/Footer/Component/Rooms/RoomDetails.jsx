@@ -20,6 +20,7 @@ import { AuthContext } from "../../../Provider/authProvider";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import ReviewCard from "../Home/ReviewCard";
+import { Helmet } from "react-helmet-async";
 
 const RoomDetails = () => {
   const { id } = useParams();
@@ -121,6 +122,9 @@ const RoomDetails = () => {
   //   const { room_name, description, price, availability, image, size } = room;
   return (
     <div>
+               <Helmet>
+      <title>RoomJet-Room Details</title>
+    </Helmet>
       <div className="bg-gray-100 dark:bg-gray-800 py-8">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row -mx-4">

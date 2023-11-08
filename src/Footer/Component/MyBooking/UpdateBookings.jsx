@@ -5,21 +5,22 @@ import { useLoaderData, useParams } from "react-router-dom";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../Provider/authProvider";
+import { Helmet } from "react-helmet-async";
 
 const UpdateBookings = () => {
-    const [room, SetRoom] = useState([]);
+  const [room, SetRoom] = useState([]);
   const { user } = useContext(AuthContext);
-  const lData = useLoaderData()
+  const lData = useLoaderData();
   console.log(lData);
 
   const { id } = useParams();
   console.log(id);
   const [data, setData] = useState([]);
- 
+
   const [Name, setname] = useState();
   const [phone, setPhone] = useState();
   const [date, setDate] = useState();
-  const[dataChange,setDataChange] = useState()
+  const [dataChange, setDataChange] = useState();
 
   useEffect(() => {
     fetch("http://localhost:5000/rooms")
@@ -29,36 +30,32 @@ const UpdateBookings = () => {
     const findData = data?.find((data) => data._id == lData.room_id);
     SetRoom(findData);
     console.log(findData);
-  }, [data,lData.room_id]);
+  }, [data, lData.room_id]);
   console.log(room);
   //   const { room_name, price, image, size } = room;
-const room_name = room?.room_name
-const price= room?.price
-const image = room?.image
-const size = room?.size
-const email = user?.email
-const _id = room?._id
+  const room_name = room?.room_name;
+  const price = room?.price;
+  const image = room?.image;
+  const size = room?.size;
+  const email = user?.email;
+  const _id = room?._id;
 
-//setToday date
-const todayDate = moment().format("YYYY-MM-DD");
+  //setToday date
+  const todayDate = moment().format("YYYY-MM-DD");
 
-//handleBookings
-const handleBookings = (e) => {
-  e.preventDefault();
-  const Name = e.target.name.value;
-  setname(Name);
-  const phone = e.target.phone.value;
-  setPhone(phone);
-  const date = e.target.date.value;
-  setDate(date);
-  console.log(Name, phone, date);
+  //handleBookings
+  const handleBookings = (e) => {
+    e.preventDefault();
+    const Name = e.target.name.value;
+    setname(Name);
+    const phone = e.target.phone.value;
+    setPhone(phone);
+    const date = e.target.date.value;
+    setDate(date);
+    console.log(Name, phone, date);
 
-  console.log(Name,date,phone);
-};
-
-
-
-
+    console.log(Name, date, phone);
+  };
 
   //fetch bokked data
 
@@ -66,40 +63,27 @@ const handleBookings = (e) => {
   const url = `http://localhost:5000/booked?room_id=${_id}`;
 
   useEffect(() => {
-   
-//    axios.get(url, {withCredentials:true})
-//    .then(res => {
-//     setBookings(res.data)
-//    })
-        
+    //    axios.get(url, {withCredentials:true})
+    //    .then(res => {
+    //     setBookings(res.data)
+    //    })
+
     fetch(url)
       .then((res) => res.json())
       .then((data) => setBooked(data));
   }, [url]);
 
-  //filter 
+  //filter
 
   const [alreadyBooked, setAlreadyBooked] = useState();
   console.log(alreadyBooked);
 
   useEffect(() => {
+    const findBooked = booked.find((data) => data.date === dataChange);
+    setAlreadyBooked(findBooked);
+  }, [dataChange, booked]);
 
-    const findBooked = booked.find((data) => data.date === dataChange)
-    setAlreadyBooked(findBooked)
-
-
-  },[dataChange,booked])
-
-
- 
-
-
-
-
-
-
-
-//post Bookings
+  //post Bookings
 
   const handleSubmit = () => {
     console.log("modal data");
@@ -109,7 +93,7 @@ const handleBookings = (e) => {
         price,
         image,
         size,
-        room_id:  _id,
+        room_id: _id,
         Name,
         email,
         phone,
@@ -118,33 +102,34 @@ const handleBookings = (e) => {
       console.log(updateBookings);
 
       fetch(`http://localhost:5000/bookings/${id}`, {
-        method:'PUT',
-        headers:{
-            'content-type' : 'application/json'
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
         },
-        body: JSON.stringify(updateBookings)
-    })
-    .then(res => res.json())
-    .then(data =>{
-        console.log(data);
+        body: JSON.stringify(updateBookings),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
 
-        if(data.modifiedCount >0 ){
+          if (data.modifiedCount > 0) {
             Swal.fire({
-                icon: 'success',
-                title: 'Congaratulations',
-                text: 'Bookings Updated succesfully!',
-                
-              })
-        }
-    })
+              icon: "success",
+              title: "Congaratulations",
+              text: "Bookings Updated succesfully!",
+            });
+          }
+        });
     } else {
       toast.error("Can't fill blank any input field");
     }
   };
 
-
   return (
     <div>
+      <Helmet>
+        <title>RoomJet-Update Bookings</title>
+      </Helmet>
       <h2 className="text-2xl font-semibold text-gray-700 text-center">
         Book Your Room Now
       </h2>
@@ -198,7 +183,7 @@ const handleBookings = (e) => {
                   Name
                 </label>
                 <input
-                defaultValue={lData?.Name }
+                  defaultValue={lData?.Name}
                   required
                   name="name"
                   className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
@@ -210,7 +195,7 @@ const handleBookings = (e) => {
                   Phone Number
                 </label>
                 <input
-                defaultValue={lData?.phone}
+                  defaultValue={lData?.phone}
                   required
                   name="phone"
                   className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
@@ -223,12 +208,12 @@ const handleBookings = (e) => {
                     Your Booking Date
                   </label>
                 </div>
-                <input 
-                defaultValue={lData?.date}
+                <input
+                  defaultValue={lData?.date}
                   required
                   name="date"
                   value={dataChange}
-                  onChange={(e)=>setDataChange(e.target.value)}
+                  onChange={(e) => setDataChange(e.target.value)}
                   min={todayDate}
                   className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
                   type="date"
@@ -236,27 +221,25 @@ const handleBookings = (e) => {
               </div>
 
               <div className="mt-8">
-                {
-                    !alreadyBooked ?
-                    <button
-                  type="submit"
-                  onClick={() =>
-                    document.getElementById("my_modal_5").showModal()
-                  }
-                  className="bg-gray-700 text-white font-bold py-2 px-4 w-full rounded hover:bg-gray-600"
-                >
-                  Book Now
-                </button>
-                :
-                <button
-                type="submit"
-                disabled
-               
-                className="bg-gray-700 text-white font-bold py-2 px-4 w-full rounded hover:bg-gray-600"
-              >
-               Booked!! Try another date
-              </button>
-                }
+                {!alreadyBooked ? (
+                  <button
+                    type="submit"
+                    onClick={() =>
+                      document.getElementById("my_modal_5").showModal()
+                    }
+                    className="bg-gray-700 text-white font-bold py-2 px-4 w-full rounded hover:bg-gray-600"
+                  >
+                    Book Now
+                  </button>
+                ) : (
+                  <button
+                    type="submit"
+                    disabled
+                    className="bg-gray-700 text-white font-bold py-2 px-4 w-full rounded hover:bg-gray-600"
+                  >
+                    Booked!! Try another date
+                  </button>
+                )}
               </div>
             </form>
 

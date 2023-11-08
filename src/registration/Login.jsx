@@ -1,62 +1,50 @@
-
 import SocialLogin from "./SocialLogin";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/authProvider";
 
 import toast from "react-hot-toast";
-
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const location = useLocation();
 
-
   const navigate = useNavigate();
 
-    const {login} = useContext(AuthContext);
-  
+  const { login } = useContext(AuthContext);
+
   const handleLogIn = (e) => {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
 
-    const email =form.get("email");
+    const email = form.get("email");
     const password = form.get("password");
-    console.log(email,password);
+    console.log(email, password);
 
     if (password.length < 6) {
-        toast.error("Password must be at least 6 charecter!");
-        return;
-      }
+      toast.error("Password must be at least 6 charecter!");
+      return;
+    }
 
-    
     //login user
     login(email, password)
       .then((res) => {
-        toast.success('Succesfully logged in')
+        toast.success("Succesfully logged in");
 
-        navigate(location.state ? location.state : '/')
-
-
-    
-    })
+        navigate(location.state ? location.state : "/");
+      })
       .catch((error) => {
-
-       
-        toast.error('Invalid Email or Password');
-        
-        
-      
-      
+        toast.error("Invalid Email or Password");
       });
-
-
-
   };
 
   return (
     <div className=" my-10 max-w-fit mx-auto">
+      <Helmet>
+        <title>RoomJet-Log In</title>
+      </Helmet>
       <div className="relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-[#9dd51f]  shadow-md">
-      <div className="relative mx-4 -mt-6 mb-4 grid h-28 place-items-center overflow-hidden rounded-xl bg-[#28844b] bg-clip-border text-white shadow-lg shadow-[#9dd51f]">
+        <div className="relative mx-4 -mt-6 mb-4 grid h-28 place-items-center overflow-hidden rounded-xl bg-[#28844b] bg-clip-border text-white shadow-lg shadow-[#9dd51f]">
           <h3 className="block font-sans text-3xl font-semibold leading-snug tracking-normal text-white antialiased">
             Sign In
           </h3>
@@ -92,7 +80,6 @@ const Login = () => {
             <button
               className="block w-full select-none rounded-lg bg-[#28844b] py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
               type="submit"
-             
             >
               Sign In
             </button>
@@ -103,7 +90,7 @@ const Login = () => {
           <Link
             to={`/singup`}
             className="ml-1 block font-sans text-sm font-bold leading-normal text-[#28844b] antialiased"
-            >
+          >
             Sign up
           </Link>
         </p>

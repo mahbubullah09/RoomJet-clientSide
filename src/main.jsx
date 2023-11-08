@@ -15,6 +15,7 @@ import PrivateRoute from './PrivateRoute/PrivateRoute';
 import MyBookings from './Footer/Component/MyBooking/MyBookings';
 import UpdateBookings from './Footer/Component/MyBooking/UpdateBookings';
 import ErrorPage from './registration/ErrorPage';
+import { HelmetProvider } from 'react-helmet-async';
 
 
 
@@ -79,7 +80,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
      <AuthProvider>
+  <HelmetProvider>
   <RouterProvider router={router} />
+  </HelmetProvider>
   </AuthProvider>
   </React.StrictMode>,
 )

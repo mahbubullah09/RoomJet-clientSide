@@ -15,6 +15,7 @@ import { useLoaderData } from "react-router-dom";
 import RoomImage from "./RoomImage";
 import RoomsCard from "./RoomsCard";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 const RoomsData = () => {
  let data= useLoaderData();
@@ -65,6 +66,9 @@ return y-x;
 }
   return (
     <div className="my-10">
+               <Helmet>
+      <title>RoomJet-Rooms</title>
+    </Helmet>
 
       <div>
       <h2 className="text-4xl font-bold text-center my-5">Image Gallary</h2>

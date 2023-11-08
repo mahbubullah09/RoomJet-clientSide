@@ -5,12 +5,20 @@ import Newsletter from "./Newsletter";
 import Review from "./Review";
 import Rooms from "../Rooms/Rooms";
 import { useLoaderData } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
+
+
   const data = useLoaderData();
   console.log(data);
   return (
+
+
     <div className="relative max-w-6xl mx-auto">
+          <Helmet>
+      <title>RoomJet-Home</title>
+    </Helmet>
       <div className="max-w-6xl mx-auto">
         <video
           autoPlay="{true}"

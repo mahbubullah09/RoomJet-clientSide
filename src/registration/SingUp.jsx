@@ -4,16 +4,14 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import SocialLogin from "./SocialLogin";
 import { AuthContext } from "../Provider/authProvider";
-
+import { Helmet } from "react-helmet-async";
 
 const SingUp = () => {
   const { user, createUser, handleUpdateProfile } = useContext(AuthContext);
 
   const location = useLocation();
 
-
- const navigate = useNavigate();
-
+  const navigate = useNavigate();
 
   const handleSingUp = (event) => {
     event.preventDefault();
@@ -21,35 +19,33 @@ const SingUp = () => {
     const image = event.target.image.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
-   
-    console.log(name,image,email,password);
 
-
+    console.log(name, image, email, password);
 
     const hasCapitalLetter = /[A-Z]/.test(password);
-    const hasSpecialCharacter = /[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]/.test(password);
+    const hasSpecialCharacter = /[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]/.test(
+      password
+    );
 
     if (password.length < 6) {
       toast.error("Password must be at least 6 charecter!");
       return;
+    } else if (!hasCapitalLetter) {
+      toast.error("password should contain atleast one number capital letter");
+      return;
+    } else if (!hasSpecialCharacter) {
+      toast.error(
+        "password should contain atleast one number special Charecter"
+      );
+      return;
     }
-    else if (!hasCapitalLetter){
-        toast.error("password should contain atleast one number capital letter");
-        return
-    }
-    else if (!hasSpecialCharacter){
-        toast.error("password should contain atleast one number special Charecter");
-        return
-    }
-   
-   
 
-   // create user
+    // create user
     createUser(email, password)
       .then((res) => {
         handleUpdateProfile(name, image).then(() => {
           toast.success("User created successfully");
-          navigate(location.state ? location.state : '/')
+          navigate(location.state ? location.state : "/");
 
           toast.success("Succesfully create account");
         });
@@ -61,6 +57,9 @@ const SingUp = () => {
 
   return (
     <div className=" my-10 max-w-fit mx-auto">
+      <Helmet>
+        <title>RoomJet-Sing Up</title>
+      </Helmet>
       <div className="relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-[#9dd51f]  shadow-md">
         <div className="relative mx-4 -mt-6 mb-4 grid h-28 place-items-center overflow-hidden rounded-xl bg-[#28844b] bg-clip-border text-white shadow-lg shadow-[#9dd51f]">
           <h3 className="block font-sans text-3xl font-semibold leading-snug tracking-normal text-white antialiased">
