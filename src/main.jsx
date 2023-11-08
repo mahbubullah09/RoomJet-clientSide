@@ -16,6 +16,8 @@ import MyBookings from './Footer/Component/MyBooking/MyBookings';
 import UpdateBookings from './Footer/Component/MyBooking/UpdateBookings';
 import ErrorPage from './registration/ErrorPage';
 import { HelmetProvider } from 'react-helmet-async';
+import Faq from './Footer/Component/Faq/Faq';
+import About from './Footer/Component/About/About';
 
 
 
@@ -70,6 +72,15 @@ const router = createBrowserRouter([
         path: '/singup',
         element: <SingUp/>
       },
+      {
+        path: '/faq',
+        element: <Faq/>
+      },
+      {
+        path: '/about',
+        element: <About/>
+      },
+
     ],
   },
 ]);
