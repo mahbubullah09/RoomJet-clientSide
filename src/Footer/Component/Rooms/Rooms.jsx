@@ -8,7 +8,7 @@ const Rooms = ({ data }) => {
     <div>
       
 
-<div data-aos="fade-up-right">
+      <div data-aos="zoom-out-left">
 <div className="max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md">
         <div className="relative">
           <img className="w-full h-64 object-cover" src={image} alt="Image" />

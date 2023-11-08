@@ -81,7 +81,7 @@ const MyBookings = () => {
         <title>RoomJet-My Bookings</title>
       </Helmet>
 
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto my-20">
         <table className="table">
           {/* head */}
           <thead>
