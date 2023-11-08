@@ -1,4 +1,5 @@
 import moment from "moment";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const BookingRow = ({ bookings,handleDelete ,handleUpdate}) => {
@@ -17,7 +18,18 @@ room_id
    console.log(time);
 
 
-  console.log(status,bookings);
+   //compare booking date
+
+   const[possible,SetPossible] = useState(false)
+   useEffect(() =>{
+    if((time.startsWith('in') && time.endsWith('day')) || (time.startsWith('in') && time.endsWith('days'))){
+      SetPossible(true);
+      }
+   
+   },[time])
+   console.log(possible);
+
+
 
 
   return (
@@ -43,7 +55,12 @@ room_id
        <button  className="w-24 bg-[#FF3811] py-2 px-4 rounded text-white">Update</button>
        </Link>
      
-        <button onClick={() => handleDelete(_id)} className="w-24 bg-[#FF3811] py-2 px-4 rounded text-white">Delete</button>
+       {
+        possible?
+        <button onClick={() => handleDelete(_id)} className="w-24 bg-[#FF3811] py-2 px-4 rounded text-white">Cancel</button>
+        :
+        <button disabled className="w-24 bg-[#24110d] py-2 px-4 rounded text-white">Can't Cancel</button>
+       }
       </th>
     </tr>
   );
