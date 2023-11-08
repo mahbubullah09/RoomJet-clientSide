@@ -1,9 +1,13 @@
+import { Helmet } from "react-helmet-async";
 import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa6";
 
 const About = () => {
   return (
     <div>
       <div>
+        <Helmet>
+        <title>RoomJet-About</title>
+        </Helmet>
         <h1 className="text-center pl-8 pr-8 text-3xl md:text-4xl font-bold">
           Our <span className="text-[#28844b]">History</span>
         </h1>
