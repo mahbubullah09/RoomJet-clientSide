@@ -14,6 +14,7 @@ import Bookings from './Booking/Bookings';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import MyBookings from './Footer/Component/MyBooking/MyBookings';
 import UpdateBookings from './Footer/Component/MyBooking/UpdateBookings';
+import ErrorPage from './registration/ErrorPage';
 
 
 
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element:<MainLayout/>,
-    // errorElement: <ErrorPage />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -35,9 +36,9 @@ const router = createBrowserRouter([
       },
       {
         path: '/rooms/:id',
-        element:<PrivateRoute>
+        element:
           <RoomDetails/>,
-        </PrivateRoute>,
+        
         loader: ({params}) => fetch(`http://localhost:5000/rooms/${params.id}`)
       },
       {
