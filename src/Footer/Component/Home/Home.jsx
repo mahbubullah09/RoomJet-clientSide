@@ -30,7 +30,7 @@ const Home = () => {
         </video>
       </div>
 
-      <div className="flex items-center justify-evenly mx-2 mt-6 md:mx-10 md:mt-16 lg:mx-20 lg:mt-36">
+      <div className=" flex items-center justify-evenly mx-2 mt-6 md:mx-10 md:mt-16 lg:mx-20 lg:mt-36">
         <div className="flex-1 ">
           <h3 className="text-white font-bold text-lg md:text-3xl lg:text-6xl">
             Discover a World of Luxury and Comfort with RoomJet
@@ -60,7 +60,7 @@ const Home = () => {
             guests.
           </p>
         </div>
-        <div className="grid grid-cols-3 gap-4 mx-2 my-8">
+        <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-4  my-8 ">
           {data?.slice(6, 12).map((data) => (
             <Rooms key={data.room_name} data={data} />
           ))}

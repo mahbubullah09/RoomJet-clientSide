@@ -127,8 +127,8 @@ const Bookings = () => {
       <h2 className="text-2xl font-semibold text-gray-700 text-center">
         Book Your Room Now
       </h2>
-      <div className="py-6 px-6">
-        <div className="px-6 flex flex-col md:flex-row gap-4 bg-white rounded-lg shadow-lg overflow-hidden py-10 mx-auto  lg:max-w-6xl">
+      <div className="py-6 px-2">
+        <div className="px-1 flex flex-col md:flex-row gap-4 bg-white rounded-lg shadow-lg overflow-hidden py-10 mx-auto  lg:max-w-6xl">
           <div className=" w-full  bg-cover">
             <img className="w-full object-cover " src={room?.image} alt="" />
             <div className="md:flex-1 px-4">

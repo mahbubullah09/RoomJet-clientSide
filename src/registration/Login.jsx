@@ -55,11 +55,11 @@ const Login = () => {
   };
 
   return (
-    <div className=" my-10 max-w-fit mx-auto">
+    <div className=" my-10 w-full md:max-w-fit mx-auto">
       <Helmet>
         <title>RoomJet-Log In</title>
       </Helmet>
-      <div className="relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-[#9dd51f]  shadow-md">
+      <div className="relative flex w-full md:w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-[#9dd51f]  shadow-md">
         <div className="relative mx-4 -mt-6 mb-4 grid h-28 place-items-center overflow-hidden rounded-xl bg-[#28844b] bg-clip-border text-white shadow-lg shadow-[#9dd51f]">
           <h3 className="block font-sans text-3xl font-semibold leading-snug tracking-normal text-white antialiased">
             Sign In

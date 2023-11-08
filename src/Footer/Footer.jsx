@@ -2,7 +2,7 @@ import logo from "../assets/RoomJet logo.png"
 
 const Footer = () => {
     return (
-        <footer className="footer p-10 bg-black text-white">
+        <footer className="footer px-20 md:px-0 py-10 bg-black text-white">
         <div className="flex flex-col items-center">
           <img className=" w-1/2" src={logo} alt="" />
           <div className=" text-center">

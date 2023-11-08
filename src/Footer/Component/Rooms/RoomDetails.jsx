@@ -21,6 +21,7 @@ import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import ReviewCard from "../Home/ReviewCard";
 import { Helmet } from "react-helmet-async";
+import axios from "axios";
 
 const RoomDetails = () => {
   const { id } = useParams();
@@ -44,14 +45,14 @@ const RoomDetails = () => {
   const url = `http://localhost:5000/booked/email?email=${email}`;
 
   useEffect(() => {
-    //    axios.get(url, {withCredentials:true})
-    //    .then(res => {
-    //     setBookings(res.data)
-    //    })
+       axios.get(url, {withCredentials:true})
+       .then(res => {
+        setBooked(res.data)
+       })
 
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setBooked(data));
+    // fetch(url)
+    //   .then((res) => res.json())
+    //   .then((data) => setBooked(data));
   }, [url]);
 
   //filter
@@ -59,7 +60,7 @@ const RoomDetails = () => {
   const [IsBooked, setIsBooked] = useState();
 
   useEffect(() => {
-    const findBooked = booked.find((data) => data.room_id === id);
+    const findBooked = booked?.find((data) => data.room_id === id);
     setIsBooked(findBooked);
   }, [id, booked]);
 
