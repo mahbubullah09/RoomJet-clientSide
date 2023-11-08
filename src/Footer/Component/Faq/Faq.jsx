@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 
 const Faq = () => {
   return (
-    <div>
+    <div className="max-w-5xl mx-auto">
         <Helmet>
         <title>RoomJet-FAQ</title>
         </Helmet>

@@ -18,11 +18,41 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive
               ? " text-black font-bold bg-white rounded   py-2 px-4     "
-              : " font-boldF  py-2 px-4  "
+              : " font-bold  py-2 px-4  "
           }
         >
           {" "}
           Home
+          <span className="absolute -bottom-0 left-1/2 w-0 h-0.5 bg-black group-hover:w-1/2 group-hover:transition-all"></span>
+          <span className="absolute -bottom-0 right-1/2 w-0 h-0.5 bg-black group-hover:w-1/2 group-hover:transition-all"></span>
+        </NavLink>
+      </ul>
+      <ul className="py-1 relative group">
+        <NavLink
+          to="/about"
+          className={({ isActive }) =>
+            isActive
+              ? " text-black font-bold bg-white rounded   py-2 px-4     "
+              : " font-bold  py-2 px-4  "
+          }
+        >
+          {" "}
+          About
+          <span className="absolute -bottom-0 left-1/2 w-0 h-0.5 bg-black group-hover:w-1/2 group-hover:transition-all"></span>
+          <span className="absolute -bottom-0 right-1/2 w-0 h-0.5 bg-black group-hover:w-1/2 group-hover:transition-all"></span>
+        </NavLink>
+      </ul>
+      <ul className="py-1 relative group">
+        <NavLink
+          to="/faq"
+          className={({ isActive }) =>
+            isActive
+              ? " text-black font-bold bg-white rounded   py-2 px-4     "
+              : " font-bold  py-2 px-4  "
+          }
+        >
+          {" "}
+         FAQ
           <span className="absolute -bottom-0 left-1/2 w-0 h-0.5 bg-black group-hover:w-1/2 group-hover:transition-all"></span>
           <span className="absolute -bottom-0 right-1/2 w-0 h-0.5 bg-black group-hover:w-1/2 group-hover:transition-all"></span>
         </NavLink>
