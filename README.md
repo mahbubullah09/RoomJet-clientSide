@@ -1,8 +1,19 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# RoomJet
+This is simple website using Html, Tailwind CSS , React , Firebase ,mongoDB and JWT.This is simple hotel booking website  with client side and server side
 
-Currently, two official plugins are available:
+## Feature
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Registration
+- Email and Password sing in
+- Google sing in
+- Private Route
+- Data fetch from mongoDB
+- User can book room
+- User can' book room in same day
+- User can update theire booking
+- User can cancel theire booking before day
+- Log Out
+## Deploy
+
+Here is Live Website [Link](https://roomjet-1d0e8.web.app/)
