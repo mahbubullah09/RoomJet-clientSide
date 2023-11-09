@@ -138,14 +138,11 @@ const Bookings = () => {
                 
           <p className=" ">Size: {room?.size}</p>
                 <p className="font-bold ">${room?.price}/Night</p>
-               
-              
-              
-                 
-              
+                                      
+                               
             </div>
           </div>
-            <div className="px-4">
+            <div>
                        
                 
                 {room?.specialOffer ? (
