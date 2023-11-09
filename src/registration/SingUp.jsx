@@ -162,7 +162,7 @@ const SingUp = () => {
               to={`/login`}
               className="ml-1 block font-sans text-sm font-bold leading-normal text-[#28844b] antialiased"
             >
-              Sign In
+              Sign Up
             </Link>
           </p>
           <SocialLogin></SocialLogin>
