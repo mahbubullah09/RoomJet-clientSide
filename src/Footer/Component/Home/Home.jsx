@@ -40,7 +40,7 @@ const Home = () => {
             Discover a World of Luxury and Comfort with RoomJet
           </h3>
           <div className=" lg:mt-8">
-            <button className=" text-base font-semibold hover:bg-[#28844b] hover:text-black bg-[#ffcf00]  text-black  py-2 px-4 rounded-md hover:bg-blue-gray-800">
+            <button className=" text-sm md:text-base font-semibold  bg-[#ffcf00]  text-black  py-1 px-2 md:py-2 md:px-4 rounded-md hover:bg-blue-gray-800">
               Book Now
             </button>
           </div>
