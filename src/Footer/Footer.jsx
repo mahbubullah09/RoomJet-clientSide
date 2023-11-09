@@ -1,35 +1,40 @@
-import logo from "../assets/RoomJet logo.png"
 
+import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter, FaYoutube } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 const Footer = () => {
     return (
-        <footer className="footer px-20 md:px-0 py-10 bg-black text-white">
-        <div className="flex flex-col items-center">
-          <img className=" w-1/2" src={logo} alt="" />
-          <div className=" text-center">
-          <p>RoomJet</p>
-          <p>Providing service since 1992</p>
-          </div>
-        </div> 
-        <nav>
-          <header className="footer-title">About</header> 
-          <a className="link link-hover">Home</a> 
-          <a className="link link-hover">Service</a> 
-          <a className="link link-hover">Contact</a> 
-          
-        </nav> 
-        <nav>
-          <header className="footer-title">Company</header> 
-          <a className="link link-hover">Why RoomJet</a> 
-          <a className="link link-hover">About</a> 
-          
-        </nav> 
-        <nav>
-          <header className="footer-title">Support</header> 
-          <a className="link link-hover">Support Center</a> 
-          <a className="link link-hover">Feedback</a> 
-          <a className="link link-hover">Accesbility</a>
-        </nav>
-      </footer>
+        <div>
+    <footer className="footer footer-center  bg-cyan-900 text-primary-content ">
+        <div className="flex pt-20   ">
+            <img className="bg-white py-2 px-4 rounded-full" src="https://i.ibb.co/P1LkfSj/Room-Jet-2.png" />
+            
+        </div>
+        <div className="pt-0 pb-0">
+            <ul tabIndex="0" className="text-white gap-8  flex flex-wrap justify-center  md:grid-cols-6 gap-5     ">
+                <li><Link to={'/'} >Home</Link></li>
+                <li><Link to={'/about'} >About Us</Link></li>
+                <li><Link to={'/faq'} >FAQ</Link></li>
+              
+                <li><Link to={'/rooms'} >Rooms</Link></li>
+                <li><Link to={'/mybookings'} >My Bookings</Link></li>
+
+            </ul>
+        </div>
+        <div>
+            <div className=" text-white pb-10 text-3xl flex flex-wrap justify-center gap-6 md:grid-cols-6   ">
+              
+                <FaTwitter></FaTwitter>
+                <FaYoutube></FaYoutube>
+                <FaFacebook></FaFacebook>
+                <FaLinkedin></FaLinkedin>
+                <FaInstagram></FaInstagram>
+
+               
+            </div>
+        </div>
+    </footer>
+            
+        </div>
     );
 };
 
