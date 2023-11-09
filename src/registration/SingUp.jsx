@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import SocialLogin from "./SocialLogin";
 import { AuthContext } from "../Provider/authProvider";
 import { Helmet } from "react-helmet-async";
+import axios from "axios";
 
 const SingUp = () => {
   const { user, createUser, handleUpdateProfile } = useContext(AuthContext);
@@ -42,15 +43,41 @@ const SingUp = () => {
 
     // create user
     createUser(email, password)
-      .then((res) => {
-        handleUpdateProfile(name, image).then(() => {
-             
-          navigate(location.state ? location.state : "/");
+    .then(result =>{
+      const user = result.user
+      console.log(user)
 
-          toast.success("Succesfully create account");
-        });
-        
+      const loggeinUser = {email};
+
+      axios.post('https://roomjet-server-side.vercel.app/jwt' , loggeinUser,{
+        withCredentials: true
       })
+      .then(res => {
+        console.log(res.data)
+        if(res.data.success){
+          handleUpdateProfile(name, image).then(() => {
+             
+            navigate(location.state ? location.state : "/");
+  
+            toast.success("Succesfully create account");
+          });
+          
+         
+          toast.success('Successfully login')
+
+        }})
+    
+           
+    
+    })
+
+
+
+
+
+
+       
+    
       .catch((error) => {
         toast.error(error.message);
       });
