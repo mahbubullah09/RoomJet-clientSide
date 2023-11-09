@@ -150,7 +150,7 @@ const SingUp = () => {
                 className="block w-full select-none rounded-lg bg-[#28844b]  py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                 type="submit"
               >
-                Sign In
+                Sign Up
               </button>
             </div>
           </div>
@@ -162,7 +162,7 @@ const SingUp = () => {
               to={`/login`}
               className="ml-1 block font-sans text-sm font-bold leading-normal text-[#28844b] antialiased"
             >
-              Sign Up
+              Login
             </Link>
           </p>
           <SocialLogin></SocialLogin>
