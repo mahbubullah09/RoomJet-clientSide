@@ -132,25 +132,27 @@ const Bookings = () => {
           <div className=" w-full  bg-cover">
           <div className="relative">
           <img className="w-full object-cover " src={room?.image} alt="" />
-          < p className='absolute bottom-1 right-1 md:text-xl font-bold bg-[#ffcf00] rounded-md py-2 px-2 bg-opacity-40 '> {!alreadyBooked ? <span>Available</span> : <span>Unavailable</span>}Review</p>
+          < p className='absolute top-0 left-0 md:text-xl font-bold bg-[#ffcf00] rounded-md py-2 px-2 bg-opacity-40 '> {!alreadyBooked ? <span>Available</span> : <span>Unavailable</span>}</p>
+
+          <div className="flex justify-between items-center absolute bottom-0  md:text-xl text-white font-bold bg-[#0e0d0d] py-2 px-2 bg-opacity-60 w-full ">
+                
+          <p className=" ">Size: {room?.size}</p>
+                <p className="font-bold ">${room?.price}/Night</p>
+               
+              
+              
+                 
+              
+            </div>
           </div>
-            <div className="md:flex-1 px-4">
-              <div className="flex mb-4">
-                <div className="mr-4">
-                  <span className="font-bold text-gray-700 ">Price:</span>
-                  <span className="text-gray-600 ">${room?.price}</span>
-                </div>
+            <div className="px-4">
+                       
                 
-                   
-                
-              </div>
-              <div className="flex">
-                <p className="text-gray-700 mr-4">Size: {room?.size}</p>
                 {room?.specialOffer ? (
-                  <p className="text-gray-700">
+                  <p className="text-black font-semibold text-lg">
                     Special Offer :{" "}
                     {room?.specialOffer ? (
-                      <span className="text-gray-700">
+                      <span className="text-black font-semibold text-lg">
                         {room?.specialOffer}
                       </span>
                     ) : (
@@ -160,7 +162,7 @@ const Bookings = () => {
                 ) : (
                   ""
                 )}
-              </div>
+            
             </div>
           </div>
           <div className="w-full ">
