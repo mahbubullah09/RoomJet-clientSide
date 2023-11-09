@@ -124,7 +124,7 @@ const Navbar = () => {
           </div>
          <Link to={'/'}>
          <img
-            className="w-1/5"
+            className="w-10 md:w-1/5 cursor-pointer"
             src={logo}
             alt=""
           />
@@ -136,7 +136,7 @@ const Navbar = () => {
         <div className="navbar-end">
           
           {user?.email ? (
-            <div className="cursor-pointer mr-2 flex gap-2">
+            <div className="cursor-pointer mr-2 flex items-center gap-2">
               <div className="dropdown dropdown-end ">
                 <label tabIndex={0} className="">
                   <div className="w-10  ">
@@ -170,7 +170,7 @@ const Navbar = () => {
               </div>
               <div>
                 <button
-                  className="text-base font-semibold hover:bg-[#28844b] hover:text-black bg-[#ffcf00]  text-black  py-2 px-4 rounded-md hover:bg-blue-gray-800"
+                  className="  text-sm md:text-base font-semibold hover:bg-[#e9c836] hover:text-black bg-[#ffcf00]  text-black py-1 px-2 md:py-2 md:px-4 rounded-md hover:bg-blue-gray-800"
                   onClick={logOut}
                 >
                   Logout
@@ -178,7 +178,7 @@ const Navbar = () => {
               </div>
             </div>
           ) : (
-            <div className=" text-base font-semibold hover:bg-[#28844b] hover:text-black bg-[#ffcf00]  text-black  py-2 px-4 rounded-md hover:bg-blue-gray-800 ">
+            <div className=" text-sm md:text-base font-semibold hover:bg-[#e9c836] hover:text-black bg-[#ffcf00]  text-black py-1 px-2 md:py-2 md:px-4 rounded-md hover:bg-blue-gray-800 ">
               <Link to={"/login"}>Log In</Link>
             </div>
           )}

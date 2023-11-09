@@ -6,7 +6,7 @@ const Footer = () => {
         <div>
     <footer className="footer footer-center  bg-cyan-900 text-primary-content ">
         <div className="flex pt-20   ">
-            <img className="bg-white py-2 px-4 rounded-full" src="https://i.ibb.co/P1LkfSj/Room-Jet-2.png" />
+            <img className="bg-white py-2 px-4 rounded-full w-1/2 mx-auto" src="https://i.ibb.co/P1LkfSj/Room-Jet-2.png" />
             
         </div>
         <div className="pt-0 pb-0">
