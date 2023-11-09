@@ -130,21 +130,19 @@ const Bookings = () => {
       <div className="py-6 px-2">
         <div className="px-1 flex flex-col md:flex-row gap-4 bg-white rounded-lg shadow-lg overflow-hidden py-10 mx-auto  lg:max-w-6xl">
           <div className=" w-full  bg-cover">
-            <img className="w-full object-cover " src={room?.image} alt="" />
+          <div className="relative">
+          <img className="w-full object-cover " src={room?.image} alt="" />
+          < p className='absolute bottom-1 right-1 md:text-xl font-bold bg-[#ffcf00] rounded-md py-2 px-2 bg-opacity-40 '> {!alreadyBooked ? <span>Available</span> : <span>Unavailable</span>}Review</p>
+          </div>
             <div className="md:flex-1 px-4">
               <div className="flex mb-4">
                 <div className="mr-4">
                   <span className="font-bold text-gray-700 ">Price:</span>
                   <span className="text-gray-600 ">${room?.price}</span>
                 </div>
-                <div className="flex ">
-                  <span className="font-bold text-gray-700  ">
-                    Availability:
-                  </span>
-                  <span className="text-gray-600 ">
-                    {!alreadyBooked ? <p>Available</p> : <p>Unavailable</p>}
-                  </span>
-                </div>
+                
+                   
+                
               </div>
               <div className="flex">
                 <p className="text-gray-700 mr-4">Size: {room?.size}</p>
