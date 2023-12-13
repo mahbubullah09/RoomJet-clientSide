@@ -86,6 +86,11 @@ const RoomDetails = () => {
   // const [rating, setRating] = useState();
   // const [message , setMessage] = useState();
 
+  const handleRreports = () => {
+    toast.success("Report added succesfully. We review your reports soon.");
+  }
+
+
   const handleReview = (e) => {
     e.preventDefault();
     const rating = e.target.rating.value;
@@ -163,7 +168,59 @@ const RoomDetails = () => {
                       Give a review
                     </button>
                   )}
+                 
                 </div>
+                <div>
+                <button  onClick={() =>
+                        document.getElementById("my_modal_6").showModal() } className="w-full bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-700">
+                      Reports Rooms
+                    </button>
+                </div>
+                <dialog
+                  id="my_modal_6"
+                  className="modal modal-bottom sm:modal-middle"
+                >
+                  <div className="modal-box">
+                    <h2 className="title-font mb-1 text-lg font-medium text-gray-900">
+                      Reports
+                    </h2>
+                    <p className="mb-5 leading-relaxed text-gray-600">
+                      If you have any reports please tell us . We will try to improve.
+                    </p>
+                    <form onSubmit={handleRreports} method="dialog">
+                      
+                      <div className="mb-4 font-medium text-lg">
+                        <label
+                          htmlFor="message"
+                          className="text-sm leading-7 text-gray-600"
+                        >
+                          Message
+                        </label>
+                        <textarea
+                          required
+                          id="message"
+                          name="message"
+                          className="h-32 w-full resize-none rounded border border-gray-300 bg-white py-1 px-3 text-base leading-6 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
+                        ></textarea>
+                      </div>
+                      <button
+                        type="submit"
+                        className="rounded border-0 bg-indigo-500 py-2 px-6 text-lg text-white hover:bg-indigo-600 focus:outline-none"
+                      >
+                        Send
+                      </button>
+                    </form>
+                    <p className="mt-3 text-xs text-gray-500">
+                      Feel free to connect with us on social media platforms.
+                    </p>
+                    <div className="modal-action">
+                      <form method="dialog">
+                        {/* if there is a button in form, it will close the modal */}
+                        <button className="btn">Close</button>
+                      </form>
+                    </div>
+                  </div>
+                </dialog>
                 <dialog
                   id="my_modal_5"
                   className="modal modal-bottom sm:modal-middle"

@@ -20,6 +20,7 @@ const AuthProvider = ({children}) => {
         return signInWithPopup(auth, googleProvider);
     }
     
+    
 
 
 //singup
@@ -34,6 +35,8 @@ const login = (email,password) => {
     setLoading(true);
    return signInWithEmailAndPassword(auth, email, password)
 }
+
+
 
 const handleUpdateProfile = (name, photo) => {
     setLoading(true);

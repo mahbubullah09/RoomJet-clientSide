@@ -1,10 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 
-import BookingRow from "./BookingRow";
+
 import Swal from "sweetalert2";
 import axios from "axios";
 import { AuthContext } from "../../../Provider/authProvider";
 import { Helmet } from "react-helmet-async";
+import BookingRow from "./BookingRow";
 
 const MyBookings = () => {
   const { user } = useContext(AuthContext);
@@ -33,6 +34,7 @@ const MyBookings = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
+        
         fetch(`https://roomjet-server-side.vercel.app/bookings/${id}`, {
           method: "DELETE",
         })
