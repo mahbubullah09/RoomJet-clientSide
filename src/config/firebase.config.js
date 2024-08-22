@@ -6,13 +6,14 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAZJxhzYNl9d9_r3QdonbKCFDM_TSzfq6g",
-  authDomain: "roomjet01.firebaseapp.com",
-  projectId: "roomjet01",
-  storageBucket: "roomjet01.appspot.com",
-  messagingSenderId: "801928899157",
-  appId: "1:801928899157:web:57c34c47e0be46291a82dc",
-  measurementId: "G-HP4V0847SC"
+  authDomain:import.meta.env.VITE_authDomain ,
+  apiKey:import.meta.env.VITE_apiKey ,
+  projectId:import.meta.env.VITE_projectId,
+  storageBucket:import.meta.env.VITE_storageBucket ,
+  messagingSenderId:import.meta.env.VITE_messagingSenderId ,
+  appId:import.meta.env.VITE_appId ,
+
+
 };
 
 // Initialize Firebase
